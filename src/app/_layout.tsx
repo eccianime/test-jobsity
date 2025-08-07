@@ -11,6 +11,9 @@ import { Stack } from "expo-router";
 import { StatusBar } from "react-native";
 import colors from "../config/colors";
 
+import { store } from "@/redux/store";
+import { Provider } from "react-redux";
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     "open-sans-regular": OpenSans_400Regular,
@@ -23,7 +26,7 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <Provider store={store}>
       <StatusBar translucent />
       <Stack
         screenOptions={{
@@ -31,6 +34,6 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: colors.white },
         }}
       />
-    </>
+    </Provider>
   );
 }
