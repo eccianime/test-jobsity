@@ -19,7 +19,7 @@ export default function Search() {
 
   return (
     <View className="flex-1 pb-4">
-      <Header />
+      <Header isSearchResult={Boolean(searchText.length)} />
       {!data?.length ? <NoResults /> : <SearchList data={data} />}
     </View>
   );

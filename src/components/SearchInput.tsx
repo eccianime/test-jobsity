@@ -14,7 +14,7 @@ export default function SearchInput() {
       <TextInput
         placeholder="Search Shows"
         placeholderTextColor={"#AAA"}
-        className="flex-1 bg-white px-4 py-3 font-open-sans-regular"
+        className="font-open-sans-regular flex-1 bg-white px-4 py-3"
         value={searchText}
         onChangeText={setSearchText}
       />

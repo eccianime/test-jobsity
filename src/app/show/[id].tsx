@@ -1,13 +1,12 @@
+import BackButton from "@/components/BackButton";
 import LoadingScreen from "@/components/LoadingScreen";
 import { EpisodesTab, InformationTab, ShowTabs } from "@/components/show";
-import colors from "@/config/colors";
 import { useGetEpisodesListQuery } from "@/redux/services/episodes";
 import { useGetShowDetailsQuery } from "@/redux/services/shows";
 import { ShowProps } from "@/types/schema";
-import { Ionicons } from "@expo/vector-icons";
-import { router, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
-import { Image, Pressable, ScrollView, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function Show() {
@@ -42,14 +41,9 @@ export default function Show() {
           className="aspect-[9/13] h-auto max-w-[100%]"
           resizeMode="cover"
         />
-        <Pressable className="absolute left-8 top-12 h-10 w-10 items-center justify-center rounded-full bg-black/50">
-          <Ionicons
-            color={colors.white}
-            size={24}
-            name="chevron-back-outline"
-            onPress={() => router.back()}
-          />
-        </Pressable>
+        <View className="absolute left-8 top-12">
+          <BackButton />
+        </View>
         <View className="m-6">
           <ShowTabs
             changeTab={setCurrentTab}

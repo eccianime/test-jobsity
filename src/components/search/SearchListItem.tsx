@@ -45,7 +45,7 @@ export default function SearchListItem({
           ellipsizeMode="tail"
           numberOfLines={5}
         >
-          {removeHtmlTags(data.summary)}
+          {data.summary ? removeHtmlTags(data.summary) : "No summary available"}
         </Text>
       </View>
     </TouchableOpacity>
