@@ -1,4 +1,4 @@
-import { SEARCH_RESULTS } from "@/data/search";
+import { SEARCH_RESULTS } from "@/data/search_results";
 import { memo } from "react";
 import { FlatList, View } from "react-native";
 import ShowListItem from "./SearchListItem";

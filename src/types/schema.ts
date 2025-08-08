@@ -23,3 +23,10 @@ export type ShowResultProps = ShowProps & {
     name: string;
   } | null;
 };
+
+export type EpisodeProps = {
+  id: number;
+  name: string;
+  season: number;
+  number: number;
+};

@@ -1,8 +1,11 @@
 import { EpisodesTab, InformationTab, ShowTabs } from "@/components/show";
-import { SHOW_DETAILS } from "@/data/details";
-import { useLocalSearchParams } from "expo-router";
+import colors from "@/config/colors";
+import { EPISODES_LIST } from "@/data/episodes_list";
+import { SHOW_DETAILS } from "@/data/show_details";
+import { Ionicons } from "@expo/vector-icons";
+import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, ScrollView, View } from "react-native";
+import { Image, Pressable, ScrollView, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function Show() {
@@ -12,6 +15,7 @@ export default function Show() {
     // HERE GOES THE LOGIC OF FETCHING THE SHOW
   }, [id]);
   const data = SHOW_DETAILS;
+  const episodesList = EPISODES_LIST.sort((a, b) => b.season - a.season);
 
   const [currentTab, setCurrentTab] = useState(0);
   return (
@@ -22,13 +26,21 @@ export default function Show() {
       >
         <Image
           source={
-            data.image?.medium || data.image?.original
+            Boolean(data.image?.original || data.image?.medium)
               ? { uri: data.image?.original || data.image?.medium }
               : NoImageAvailable
           }
-          className="aspect-[9/13] w-[100%]"
+          className="aspect-[9/13] h-auto max-w-[100%]"
           resizeMode="cover"
         />
+        <Pressable className="absolute left-8 top-12 h-10 w-10 items-center justify-center rounded-full bg-black/50">
+          <Ionicons
+            color={colors.white}
+            size={24}
+            name="chevron-back-outline"
+            onPress={() => router.back()}
+          />
+        </Pressable>
         <View className="m-6">
           <ShowTabs
             changeTab={setCurrentTab}
@@ -42,7 +54,7 @@ export default function Show() {
               {
                 name: "Episodes",
                 icon: "list-outline",
-                content: <EpisodesTab data={data} />,
+                content: <EpisodesTab data={episodesList} />,
               },
             ]}
           />
