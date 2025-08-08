@@ -8,6 +8,7 @@ const colors = {
   secondary: {
     dark: "#3F3F3F",
     light: "#EFEFE7",
+    lighter: "#ebebeb",
   },
   white: "#FFFFFF",
 };

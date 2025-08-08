@@ -4,7 +4,9 @@ import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
 
-export default function SearchListItem({ data }: SearchListItemProps) {
+export default function SearchListItem({
+  data,
+}: Readonly<SearchListItemProps>) {
   return (
     <TouchableOpacity
       className="flex-row gap-6"
@@ -31,15 +33,15 @@ export default function SearchListItem({ data }: SearchListItemProps) {
         <Text className="font-open-regular text-lg text-secondary-dark">
           Aired on:{" "}
           <Text className="font-open-bold">
-            {data.network?.name || data.webChannel?.name}
+            {data.network?.name ?? data.webChannel?.name}
           </Text>
         </Text>
-        <Text className="font-open-regular mb-4 text-lg text-secondary-dark">
+        <Text className="mb-4 font-open-regular text-lg text-secondary-dark">
           {`${new Date(data.premiered).getFullYear()} - ${data.ended ? new Date(data.ended).getFullYear() : "Ongoing"}`}
         </Text>
         <Text className="font-open-bold text-primary-dark">Summary:</Text>
         <Text
-          className="font-open-regular text-justify text-primary-dark"
+          className="text-justify font-open-regular text-primary-dark"
           ellipsizeMode="tail"
           numberOfLines={5}
         >

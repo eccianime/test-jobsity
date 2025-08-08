@@ -5,7 +5,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 function ShowsListFooter({
   handleChangePage,
   currentPage,
-}: ShowsListFooterProps) {
+}: Readonly<ShowsListFooterProps>) {
   return (
     <View className="flex-row justify-between">
       <TouchableOpacity

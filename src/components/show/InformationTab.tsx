@@ -4,7 +4,9 @@ import React from "react";
 import { Text, View } from "react-native";
 import Badge from "../Badge";
 
-export default function InformationTab({ data }: InformationTabProps) {
+export default function InformationTab({
+  data,
+}: Readonly<InformationTabProps>) {
   return (
     <View className="rounded-b-2xl bg-white p-4">
       <Text className="mb-4 font-open-bold text-2xl text-primary-default">
@@ -27,7 +29,7 @@ export default function InformationTab({ data }: InformationTabProps) {
         </View>
       </View>
       <View className="mb-6">
-        {data.schedule.time && (
+        {Boolean(data.schedule.time) && (
           <View className="flex-row items-center gap-2">
             <Text className="font-open-bold text-lg text-secondary-dark">
               At:

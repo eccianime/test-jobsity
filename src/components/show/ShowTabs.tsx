@@ -7,7 +7,7 @@ export default function ShowTabs({
   tabs,
   currentTab,
   changeTab,
-}: ShowTabsProps) {
+}: Readonly<ShowTabsProps>) {
   return (
     <View>
       <View className="flex-row">
