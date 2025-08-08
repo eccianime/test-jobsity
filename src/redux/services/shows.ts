@@ -3,9 +3,9 @@ import { ShowProps } from "@/types/schema";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const showsApi = createApi({
-  reducerPath: "respondentsApi",
+  reducerPath: "showsApi",
   baseQuery: axiosBaseQuery({
-    baseUrl: process.env.API_URL as string,
+    baseUrl: process.env.EXPO_PUBLIC_API_URL as string,
   }),
   endpoints: (builder) => ({
     getShows: builder.query<ShowProps[], { page: number }>({

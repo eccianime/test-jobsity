@@ -16,9 +16,9 @@ import { Provider } from "react-redux";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    "open-sans-regular": OpenSans_400Regular,
-    "open-sans-semibold": OpenSans_600SemiBold,
-    "open-sans-bold": OpenSans_700Bold,
+    OpenSans_400Regular,
+    OpenSans_600SemiBold,
+    OpenSans_700Bold,
   });
 
   if (!fontsLoaded) {

@@ -1,10 +1,12 @@
 import Header from "@/components/Header";
+import ShowsList from "@/components/home/ShowsList";
 import { View } from "react-native";
 
 export default function Home() {
   return (
-    <View>
+    <View className="flex-1 pb-4">
       <Header />
+      <ShowsList />
     </View>
   );
 }
