@@ -18,17 +18,23 @@ export default function InformationTab({
       <Text className="mb-6 text-justify font-open-regular leading-6 text-secondary-dark">
         {removeHtmlTags(data.summary)}
       </Text>
-      <View className="mb-2 flex-row gap-2">
-        <Text className="font-open-bold text-lg text-secondary-dark">
+      <View className="mb-4">
+        <Text className="mb-2 font-open-bold text-lg text-secondary-dark">
           Airs on:
         </Text>
-        <View className="flex-row items-center gap-2">
-          {data.schedule.days.map((day) => (
-            <Badge content={day + "s"} key={day} />
-          ))}
+        <View className="flex-row flex-wrap gap-2">
+          {data.schedule.days.length > 0 &&
+            data.schedule.days.map((day) => (
+              <Badge content={day + "s"} key={day} />
+            ))}
+          {data.schedule.days.length === 0 && (
+            <Text className="font-open-regular text-secondary-dark">
+              Not available
+            </Text>
+          )}
         </View>
       </View>
-      <View className="mb-6">
+      <View className="mb-4">
         {Boolean(data.schedule.time) && (
           <View className="flex-row items-center gap-2">
             <Text className="font-open-bold text-lg text-secondary-dark">
@@ -41,7 +47,7 @@ export default function InformationTab({
       <Text className="font-open-bold text-lg text-secondary-dark">
         Genres:
       </Text>
-      <View className="flex-row gap-2">
+      <View className="flex-row flex-wrap gap-2">
         {data.genres.map((genre) => (
           <View className="my-2 flex-row items-center gap-2" key={genre}>
             <Badge content={genre} />

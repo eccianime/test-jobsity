@@ -1,5 +1,5 @@
 import colors from "@/config/colors";
-import { EvilIcons } from "@expo/vector-icons";
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
 import Animated, {

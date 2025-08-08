@@ -35,7 +35,7 @@ export default function EpisodesTab({ data }: Readonly<EspisodeListTabProps>) {
             }}
             className="h-10 flex-row justify-between"
           >
-            <Text className="text-xl font-semibold text-primary-default">
+            <Text className="font-open-semibold text-xl text-primary-default">
               Season {season}
             </Text>
             {!hasOnlyOneSeason && (

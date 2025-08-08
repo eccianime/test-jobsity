@@ -39,4 +39,9 @@ export type EpisodeProps = {
     original: string;
   };
   summary: string;
+  _links: {
+    show: {
+      name: string;
+    };
+  };
 };
