@@ -1,11 +1,10 @@
+import { HeaderProps } from "@/types/components";
 import { Image, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "./BackButton";
 import SearchInput from "./SearchInput";
 
-export default function Header({
-  isSearchResult,
-}: Readonly<{ isSearchResult: boolean }>) {
+export default function Header({ isSearchResult = false }: HeaderProps) {
   const { top } = useSafeAreaInsets();
   return (
     <View className=" bg-secondary-dark p-4" style={{ paddingTop: top + 10 }}>

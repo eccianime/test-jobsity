@@ -7,8 +7,10 @@ import {
 } from "./schema";
 
 export type ShowsListFooterProps = {
-  handleChangePage: (page: number) => void;
   currentPage: number;
+  paginationNumbers: number[];
+  isLastPage: boolean;
+  handleChangePage: (page: number) => void;
 };
 
 export type ShowItemProps = {
@@ -49,4 +51,8 @@ export type EpisodeListItemProps = {
 
 export type SearchListProps = {
   data: SearchResultProps[];
+};
+
+export type HeaderProps = {
+  isSearchResult?: boolean;
 };

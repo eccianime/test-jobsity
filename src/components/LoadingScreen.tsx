@@ -16,6 +16,8 @@ export default function LoadingScreen() {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ rotate: `${degrees.value}deg` }],
+      width: 100,
+      height: 100,
     };
   });
 
@@ -28,7 +30,7 @@ export default function LoadingScreen() {
   }, [degrees]);
   return (
     <View className="flex-1 items-center justify-center">
-      <Animated.View style={animatedStyle} className={`h-[100] w-[100]`}>
+      <Animated.View style={animatedStyle}>
         <EvilIcons name="spinner-3" color={colors.primary.default} size={100} />
       </Animated.View>
       <Text className="text-center font-open-semibold text-2xl text-primary-default">

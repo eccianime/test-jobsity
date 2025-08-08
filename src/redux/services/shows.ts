@@ -8,9 +8,9 @@ export const showsApi = createApi({
     baseUrl: process.env.EXPO_PUBLIC_API_URL as string,
   }),
   endpoints: (builder) => ({
-    getShows: builder.query<ShowProps[], { page: string }>({
+    getShows: builder.query<ShowProps[], { page: number }>({
       query: ({ page }) => ({
-        url: `shows&page=${page}`,
+        url: `shows?page=${page}`,
         method: "GET",
       }),
     }),

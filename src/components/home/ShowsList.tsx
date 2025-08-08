@@ -1,10 +1,22 @@
-import { SHOWS_DATA } from "@/data/show_list";
+import useShowPaginator from "@/hooks/useShowPaginator";
 import { memo } from "react";
 import { FlatList, View } from "react-native";
+import LoadingScreen from "../LoadingScreen";
 import ShowsListFooter from "./ShowsListFooter";
 import ShowItem from "./ShowsListItem";
 
 function ShowsList() {
+  const {
+    currentData,
+    paginationNumbers,
+    uiPage,
+    hasMore,
+    goToPage,
+    isLoading,
+  } = useShowPaginator();
+
+  if (isLoading) return <LoadingScreen />;
+
   return (
     <View className="flex-1 p-4">
       <FlatList
@@ -12,11 +24,16 @@ function ShowsList() {
         numColumns={2}
         keyExtractor={(item) => item.id.toString()}
         contentContainerClassName="gap-4"
-        data={SHOWS_DATA}
+        data={currentData}
         removeClippedSubviews
         renderItem={({ item, index }) => <ShowItem data={item} index={index} />}
         ListFooterComponent={
-          <ShowsListFooter currentPage={1} handleChangePage={() => {}} />
+          <ShowsListFooter
+            currentPage={uiPage}
+            isLastPage={!hasMore}
+            paginationNumbers={paginationNumbers}
+            handleChangePage={goToPage}
+          />
         }
       />
     </View>
