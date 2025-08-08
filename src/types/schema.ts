@@ -13,6 +13,11 @@ export type ShowProps = {
   };
 };
 
+export type SearchResultProps = {
+  score: number;
+  show: ShowResultProps;
+};
+
 export type ShowResultProps = ShowProps & {
   premiered: string;
   ended: string | null;

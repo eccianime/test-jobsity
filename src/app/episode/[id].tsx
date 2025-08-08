@@ -44,7 +44,9 @@ export default function Episode() {
           Summary:
         </Text>
         <Text className="mb-6 text-justify font-open-regular leading-6 text-secondary-dark">
-          {removeHtmlTags(data?.summary ?? "")}
+          {data?.summary
+            ? removeHtmlTags(data.summary)
+            : "No summary available"}
         </Text>
       </View>
     </View>

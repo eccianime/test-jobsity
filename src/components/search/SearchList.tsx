@@ -1,16 +1,16 @@
-import { SEARCH_RESULTS } from "@/data/search_results";
+import { SearchListProps } from "@/types/components";
 import { memo } from "react";
 import { FlatList, View } from "react-native";
 import ShowListItem from "./SearchListItem";
 
-function SearchList() {
+function SearchList({ data }: SearchListProps) {
   return (
     <View className="flex-1 p-4">
       <FlatList
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.show.id.toString()}
         contentContainerClassName="gap-4"
-        data={SEARCH_RESULTS}
+        data={data}
         removeClippedSubviews
         renderItem={({ item }) => <ShowListItem data={item.show} />}
       />

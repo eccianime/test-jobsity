@@ -1,5 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
-import { EpisodeProps, ShowProps, ShowResultProps } from "./schema";
+import {
+  EpisodeProps,
+  SearchResultProps,
+  ShowProps,
+  ShowResultProps,
+} from "./schema";
 
 export type ShowsListFooterProps = {
   handleChangePage: (page: number) => void;
@@ -40,4 +45,8 @@ export type EspisodeListTabProps = {
 export type EpisodeListItemProps = {
   data: EpisodeProps;
   index: number;
+};
+
+export type SearchListProps = {
+  data: SearchResultProps[];
 };
