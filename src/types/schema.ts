@@ -29,4 +29,9 @@ export type EpisodeProps = {
   name: string;
   season: number;
   number: number;
+  image: {
+    medium: string;
+    original: string;
+  };
+  summary: string;
 };

@@ -14,7 +14,14 @@ export const episodesApi = createApi({
         method: "GET",
       }),
     }),
+    getEpisodeDetails: builder.query<EpisodeProps, { episodeId: string }>({
+      query: ({ episodeId }) => ({
+        url: `episodes/${episodeId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetEpisodesListQuery } = episodesApi;
+export const { useGetEpisodesListQuery, useGetEpisodeDetailsQuery } =
+  episodesApi;
