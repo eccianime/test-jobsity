@@ -11,10 +11,10 @@ export default function EpisodeListItem({
       className={`flex-row ${index % 2 ? "bg-secondary-lighter" : ""}`}
       onPress={() => router.push(`/episode/${data.id}`)}
     >
-      <View className="h-10 w-[30%] justify-center  px-4">
+      <View className="h-10 w-[30%] justify-center px-4">
         <Text className="font-open-regular ">{data.number}</Text>
       </View>
-      <View className="h-10 flex-1 justify-center  px-4">
+      <View className="min-h-10 flex-1 justify-center  px-4 py-1">
         <Text className="font-open-regular text-primary-default">
           {data.name}
         </Text>

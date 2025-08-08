@@ -1,23 +1,32 @@
+import LoadingScreen from "@/components/LoadingScreen";
 import { EpisodesTab, InformationTab, ShowTabs } from "@/components/show";
 import colors from "@/config/colors";
-import { EPISODES_LIST } from "@/data/episodes_list";
-import { SHOW_DETAILS } from "@/data/show_details";
+import { useGetEpisodesListQuery } from "@/redux/services/episodes";
+import { useGetShowDetailsQuery } from "@/redux/services/shows";
+import { ShowProps } from "@/types/schema";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Image, Pressable, ScrollView, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function Show() {
   const { id } = useLocalSearchParams();
 
-  useEffect(() => {
-    // HERE GOES THE LOGIC OF FETCHING THE SHOW
-  }, [id]);
-  const data = SHOW_DETAILS;
-  const episodesList = EPISODES_LIST.sort((a, b) => b.season - a.season);
+  const { isLoading: isShowDetailsLoading, data: showData } =
+    useGetShowDetailsQuery({ showId: id as string });
+  const { isLoading: isEpisodesListLoading, data: episodesList } =
+    useGetEpisodesListQuery({ showId: id as string });
+  const sortedEpisodesList =
+    episodesList && episodesList?.length > 0
+      ? [...episodesList]?.sort((a, b) => b.season - a.season)
+      : [];
 
   const [currentTab, setCurrentTab] = useState(0);
+
+  if (isShowDetailsLoading || isEpisodesListLoading) {
+    return <LoadingScreen />;
+  }
   return (
     <View className="flex-1">
       <ScrollView
@@ -26,8 +35,8 @@ export default function Show() {
       >
         <Image
           source={
-            Boolean(data.image?.original || data.image?.medium)
-              ? { uri: data.image?.original || data.image?.medium }
+            Boolean(showData?.image?.original || showData?.image?.medium)
+              ? { uri: showData?.image?.original || showData?.image?.medium }
               : NoImageAvailable
           }
           className="aspect-[9/13] h-auto max-w-[100%]"
@@ -49,12 +58,14 @@ export default function Show() {
               {
                 name: "Information",
                 icon: "information-circle-outline",
-                content: <InformationTab data={data} />,
+                content: (
+                  <InformationTab data={showData || ({} as ShowProps)} />
+                ),
               },
               {
                 name: "Episodes",
                 icon: "list-outline",
-                content: <EpisodesTab data={episodesList} />,
+                content: <EpisodesTab data={sortedEpisodesList} />,
               },
             ]}
           />

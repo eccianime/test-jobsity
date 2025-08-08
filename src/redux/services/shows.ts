@@ -8,13 +8,23 @@ export const showsApi = createApi({
     baseUrl: process.env.EXPO_PUBLIC_API_URL as string,
   }),
   endpoints: (builder) => ({
-    getShows: builder.query<ShowProps[], { page: number }>({
+    getShows: builder.query<ShowProps[], { page: string }>({
       query: ({ page }) => ({
         url: `shows&page=${page}`,
+        method: "GET",
+      }),
+    }),
+    getShowDetails: builder.query<ShowProps, { showId: string }>({
+      query: ({ showId }) => ({
+        url: `shows/${showId}`,
         method: "GET",
       }),
     }),
   }),
 });
 
-export const { useGetShowsQuery } = showsApi;
+export const {
+  useGetShowsQuery,
+  useGetShowDetailsQuery,
+  useLazyGetShowsQuery,
+} = showsApi;
