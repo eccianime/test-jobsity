@@ -21,7 +21,7 @@ function ShowItem({ data, index }: ShowItemProps): JSX.Element {
         }
         accessible={true}
         accessibilityLabel={`Poster for ${data.name}`}
-        className="aspect-[9/16]"
+        className="aspect-[9/13]"
         resizeMode="cover"
         onError={(error) => console.warn("Image load failed:", error)}
       />

@@ -5,6 +5,12 @@ export type ShowProps = {
     medium: string;
     original: string;
   };
+  summary: string;
+  genres: string[];
+  schedule: {
+    time: string;
+    days: string[];
+  };
 };
 
 export type ShowResultProps = ShowProps & {
@@ -16,5 +22,4 @@ export type ShowResultProps = ShowProps & {
   webChannel: {
     name: string;
   } | null;
-  summary: string;
 };

@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { ShowProps, ShowResultProps } from "./schema";
 
 export type ShowsListFooterProps = {
@@ -12,4 +13,22 @@ export type ShowItemProps = {
 
 export type SearchListItemProps = {
   data: ShowResultProps;
+};
+
+export type BadgeProps = {
+  content: string;
+};
+
+export type ShowTabsProps = {
+  tabs: {
+    name: string;
+    icon: keyof typeof Ionicons.glyphMap;
+    content: React.ReactElement;
+  }[];
+  currentTab: number;
+  changeTab: (index: number) => void;
+};
+
+export type InformationTabProps = {
+  data: ShowProps;
 };

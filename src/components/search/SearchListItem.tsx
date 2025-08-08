@@ -20,7 +20,7 @@ export default function SearchListItem({ data }: SearchListItemProps) {
         }
         accessible={true}
         accessibilityLabel={`Poster for ${data.name}`}
-        className="aspect-[9/16] w-[45%] rounded-2xl"
+        className="aspect-[9/13] w-[45%] rounded-2xl"
         resizeMode="cover"
         onError={(error) => console.warn("Image load failed:", error)}
       />
@@ -39,9 +39,9 @@ export default function SearchListItem({ data }: SearchListItemProps) {
         </Text>
         <Text className="font-open-bold text-primary-dark">Summary:</Text>
         <Text
-          className="font-open-regular text-primary-dark"
+          className="font-open-regular text-justify text-primary-dark"
           ellipsizeMode="tail"
-          numberOfLines={8}
+          numberOfLines={5}
         >
           {removeHtmlTags(data.summary)}
         </Text>
