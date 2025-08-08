@@ -1,4 +1,4 @@
-import { ShowProps } from "./schema";
+import { ShowProps, ShowResultProps } from "./schema";
 
 export type ShowsListFooterProps = {
   handleChangePage: (page: number) => void;
@@ -8,4 +8,8 @@ export type ShowsListFooterProps = {
 export type ShowItemProps = {
   data: ShowProps;
   index: number;
+};
+
+export type SearchListItemProps = {
+  data: ShowResultProps;
 };

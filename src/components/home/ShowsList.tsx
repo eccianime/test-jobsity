@@ -1,4 +1,4 @@
-import { SHOWS_DATA } from "@/data";
+import { SHOWS_DATA } from "@/data/home";
 import { memo } from "react";
 import { FlatList, View } from "react-native";
 import ShowsListFooter from "./ShowsListFooter";

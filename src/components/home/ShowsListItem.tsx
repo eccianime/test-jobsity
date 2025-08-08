@@ -1,13 +1,15 @@
 import { ShowItemProps } from "@/types/components";
+import { router } from "expo-router";
 import { JSX, memo } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
 
 function ShowItem({ data, index }: ShowItemProps): JSX.Element {
   return (
-    <View
+    <TouchableOpacity
       className="w-[48%]  bg-primary-default"
       style={{ marginRight: !(index % 2) ? "auto" : 0 }}
+      onPress={() => router.push(`/show/${data.id}`)}
     >
       <Image
         source={
@@ -28,7 +30,7 @@ function ShowItem({ data, index }: ShowItemProps): JSX.Element {
           {data.name}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
