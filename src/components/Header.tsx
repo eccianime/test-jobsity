@@ -6,7 +6,10 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "./BackButton";
 import SearchInput from "./SearchInput";
 
-export default function Header({ isSearchResult = false }: HeaderProps) {
+export default function Header({
+  isSearchResult = false,
+  showSearch = true,
+}: HeaderProps) {
   const { top } = useSafeAreaInsets();
   const router = useRouter();
   const lockApp = () => {
@@ -28,7 +31,7 @@ export default function Header({ isSearchResult = false }: HeaderProps) {
           <LockIcon size={24} color="white" />
         </TouchableOpacity>
       </View>
-      <SearchInput />
+      {showSearch && <SearchInput />}
     </View>
   );
 }

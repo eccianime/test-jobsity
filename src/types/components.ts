@@ -56,4 +56,9 @@ export type SearchListProps = {
 
 export type HeaderProps = {
   isSearchResult?: boolean;
+  showSearch?: boolean;
+};
+
+export type FavoritesListProps = {
+  data: ShowProps[];
 };

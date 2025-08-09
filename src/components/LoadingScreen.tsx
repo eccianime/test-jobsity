@@ -23,7 +23,7 @@ export default function LoadingScreen() {
 
   useEffect(() => {
     degrees.value = withRepeat(
-      withTiming(360, { duration: 1000, easing: Easing.linear }),
+      withTiming(360, { duration: 2000, easing: Easing.linear }),
       -1,
       false,
     );

@@ -8,6 +8,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={({ route }) => ({
         headerShown: false,
+        sceneStyle: { backgroundColor: colors.white },
         tabBarLabel: ({ focused }) => (
           <Text
             className={`${focused ? "font-open-bold text-primary-default" : "font-open-regular text-primary-dark"}`}
