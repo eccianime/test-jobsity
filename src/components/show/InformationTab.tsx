@@ -1,6 +1,5 @@
 import { InformationTabProps } from "@/types/components";
 import { removeHtmlTags } from "@/utils";
-import React from "react";
 import { Text, View } from "react-native";
 import Badge from "../Badge";
 

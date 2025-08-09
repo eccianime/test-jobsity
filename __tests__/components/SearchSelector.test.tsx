@@ -1,6 +1,5 @@
 import SearchSelector from "@/components/SearchSelector";
 import { fireEvent, render } from "@testing-library/react-native";
-import React from "react";
 
 describe("SearchSelector", () => {
   it("should render correctly and responds to presses", () => {

@@ -1,5 +1,5 @@
 import { IconProps } from "phosphor-react-native";
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { ViewProps } from "react-native";
 import {
   CastCreditsProps,
