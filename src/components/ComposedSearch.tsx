@@ -1,4 +1,5 @@
 import { SearchType } from "@/types/components";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { usePathname } from "expo-router";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
@@ -19,8 +20,15 @@ export default function ComposedSearch() {
 
   return (
     <View className="flex-row gap-2">
-      <SearchSelector type={currentSearch} changeType={setCurrentSearch} />
-      <SearchInput type={currentSearch} />
+      <SearchSelector
+        testID={COMPONENTS_TEST_IDS.SEARCH_SELECTOR}
+        type={currentSearch}
+        changeType={setCurrentSearch}
+      />
+      <SearchInput
+        testID={COMPONENTS_TEST_IDS.SEARCH_INPUT}
+        type={currentSearch}
+      />
     </View>
   );
 }

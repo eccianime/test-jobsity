@@ -1,5 +1,6 @@
 import { IconProps } from "phosphor-react-native";
 import React, { FunctionComponent } from "react";
+import { ViewProps } from "react-native";
 import {
   CastCreditsProps,
   EpisodeProps,
@@ -27,7 +28,7 @@ export type SearchListItemProps = {
 };
 
 export type BadgeProps = {
-  content: string;
+  content: string | number;
 };
 
 export type ShowTabsProps = {
@@ -81,11 +82,11 @@ export type FavoritesListProps = {
 
 export type SearchType = "show" | "people";
 
-export type SearchInputProps = {
+export type SearchInputProps = ViewProps & {
   type?: SearchType;
 };
 
-export type SearchSelectorProps = {
+export type SearchSelectorProps = ViewProps & {
   type: SearchType;
   changeType: (type: SearchType) => void;
 };

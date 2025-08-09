@@ -1,4 +1,5 @@
 import { SearchInputProps } from "@/types/components";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 import { MagnifyingGlassIcon } from "phosphor-react-native";
 import { useEffect, useState } from "react";
@@ -6,6 +7,7 @@ import { TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SearchInput({
   type = "show",
+  ...props
 }: Readonly<SearchInputProps>) {
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
@@ -31,7 +33,10 @@ export default function SearchInput({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <View className="h-10 flex-1 flex-row items-center overflow-hidden rounded-3xl">
+    <View
+      {...props}
+      className="h-10 flex-1 flex-row items-center overflow-hidden rounded-3xl"
+    >
       <View className="h-10 flex-1">
         <TextInput
           placeholder={`Search ${type === "show" ? "Shows" : "People"}`}
@@ -42,6 +47,7 @@ export default function SearchInput({
         />
       </View>
       <TouchableOpacity
+        testID={COMPONENTS_TEST_IDS.SEARCH_BUTTON}
         className="h-[100%] w-[25%] items-center justify-center border border-primary-default bg-primary-default"
         onPress={handleSearch}
       >
