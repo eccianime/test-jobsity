@@ -4,11 +4,10 @@ import { LockIcon } from "phosphor-react-native";
 import { Image, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "./BackButton";
-import SearchInput from "./SearchInput";
 
 export default function Header({
   isSearchResult = false,
-  showSearch = true,
+  children,
 }: HeaderProps) {
   const { top } = useSafeAreaInsets();
   const router = useRouter();
@@ -16,10 +15,10 @@ export default function Header({
     router.replace("/unlock");
   };
   return (
-    <View className=" bg-secondary-dark p-4" style={{ paddingTop: top + 10 }}>
+    <View className=" bg-secondary-dark px-4 " style={{ paddingTop: top + 10 }}>
       <View className="items-center">
         {isSearchResult && (
-          <View className="absolute left-0 top-0 ">
+          <View className="absolute left-2 top-2">
             <BackButton />
           </View>
         )}
@@ -28,10 +27,10 @@ export default function Header({
           className="mb-6 h-[50] w-[158]"
         />
         <TouchableOpacity className="absolute right-3 top-3" onPress={lockApp}>
-          <LockIcon size={24} color="white" />
+          <LockIcon size={24} color="white" weight="fill" />
         </TouchableOpacity>
       </View>
-      {showSearch && <SearchInput />}
+      {children}
     </View>
   );
 }

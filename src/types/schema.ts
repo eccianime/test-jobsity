@@ -18,6 +18,38 @@ export type SearchResultProps = {
   show: ShowResultProps;
 };
 
+export type PeopleProps = {
+  id: number;
+  name: string;
+  image: {
+    medium: string;
+    original: string;
+  };
+};
+
+export type CastCreditsProps = {
+  _links: {
+    show: {
+      href: string;
+      name: string;
+    };
+    character: {
+      name: string;
+    };
+  };
+};
+
+export type PeopleDetailedProps = PeopleProps & {
+  _embedded: {
+    castcredits: CastCreditsProps[];
+  };
+};
+
+export type PeopleSearchResultProps = {
+  score: number;
+  person: PeopleProps;
+};
+
 export type ShowResultProps = ShowProps & {
   premiered: string;
   ended: string | null;

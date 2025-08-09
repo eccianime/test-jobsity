@@ -1,12 +1,11 @@
 import colors from "@/config/colors";
-import { EspisodeListTabProps } from "@/types/components";
+import { EspisodeTabProps } from "@/types/components";
 import { CaretDownIcon, CaretUpIcon } from "phosphor-react-native";
 import { useEffect, useState } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import EpisodeListHeader from "./EpisodeListHeader";
-import EpisodeListItem from "./EpisodeListItem";
+import { Text, TouchableOpacity, View } from "react-native";
+import EpisodesList from "./EpisodesList";
 
-export default function EpisodesTab({ data }: Readonly<EspisodeListTabProps>) {
+export default function EpisodesTab({ data }: Readonly<EspisodeTabProps>) {
   const [currentOpenAccordion, setCurrentOpenAccordion] = useState<
     null | number
   >(null);
@@ -46,17 +45,10 @@ export default function EpisodesTab({ data }: Readonly<EspisodeListTabProps>) {
               ))}
           </TouchableOpacity>
           {currentOpenAccordion === season && (
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              scrollEnabled={false}
-              keyExtractor={(item) => item.id.toString()}
+            <EpisodesList
               data={data
                 .filter((episode) => episode.season === season)
                 .sort((a, b) => b.number - a.number)}
-              ListHeaderComponent={<EpisodeListHeader />}
-              renderItem={({ item, index }) => (
-                <EpisodeListItem data={item} index={index} />
-              )}
             />
           )}
         </View>

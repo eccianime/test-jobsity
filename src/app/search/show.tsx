@@ -1,3 +1,4 @@
+import ComposedSearch from "@/components/ComposedSearch";
 import Header from "@/components/Header";
 import LoadingScreen from "@/components/LoadingScreen";
 import NoResults from "@/components/search/NoResults";
@@ -6,7 +7,7 @@ import { useGetShowsByTermQuery } from "@/redux/services/search";
 import { useLocalSearchParams } from "expo-router";
 import { View } from "react-native";
 
-export default function Search() {
+export default function SearchShows() {
   const { query: searchText } = useLocalSearchParams();
 
   const { isLoading, data } = useGetShowsByTermQuery({
@@ -19,7 +20,9 @@ export default function Search() {
 
   return (
     <View className="flex-1 pb-4">
-      <Header isSearchResult={Boolean(searchText.length)} />
+      <Header isSearchResult>
+        <ComposedSearch />
+      </Header>
       {!data?.length ? <NoResults /> : <SearchList data={data} />}
     </View>
   );

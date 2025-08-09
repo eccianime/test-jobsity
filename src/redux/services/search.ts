@@ -1,5 +1,5 @@
 import { axiosBaseQuery } from "@/config/axios";
-import { SearchResultProps } from "@/types/schema";
+import { PeopleSearchResultProps, SearchResultProps } from "@/types/schema";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const searchApi = createApi({
@@ -14,7 +14,16 @@ export const searchApi = createApi({
         method: "GET",
       }),
     }),
+    getPeopleByTerm: builder.query<
+      PeopleSearchResultProps[],
+      { searchTerm: string }
+    >({
+      query: ({ searchTerm }) => ({
+        url: `search/people?q=${searchTerm}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetShowsByTermQuery } = searchApi;
+export const { useGetShowsByTermQuery, useGetPeopleByTermQuery } = searchApi;

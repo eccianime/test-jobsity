@@ -18,7 +18,7 @@ export default function Favorites() {
 
   return (
     <View className="flex-1">
-      <Header showSearch={false} />
+      <Header />
       <FavoritesList data={sortedList} />
     </View>
   );

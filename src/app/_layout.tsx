@@ -41,7 +41,10 @@ export default function RootLayout() {
 
         <Stack.Screen name="show/[id]" />
         <Stack.Screen name="episode/[id]" />
-        <Stack.Screen name="search" />
+        <Stack.Screen name="people/[id]" />
+
+        <Stack.Screen name="search/show" />
+        <Stack.Screen name="search/people" />
       </Stack>
     </Provider>
   );

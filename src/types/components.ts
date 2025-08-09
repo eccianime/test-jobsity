@@ -1,7 +1,10 @@
 import { IconProps } from "phosphor-react-native";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import {
+  CastCreditsProps,
   EpisodeProps,
+  PeopleProps,
+  PeopleSearchResultProps,
   SearchResultProps,
   ShowProps,
   ShowResultProps,
@@ -41,7 +44,7 @@ export type InformationTabProps = {
   data: ShowProps;
 };
 
-export type EspisodeListTabProps = {
+export type EspisodeTabProps = {
   data: EpisodeProps[];
 };
 
@@ -50,15 +53,48 @@ export type EpisodeListItemProps = {
   index: number;
 };
 
+export type EpisodesListProps = {
+  data: EpisodeProps[];
+};
+
 export type SearchListProps = {
   data: SearchResultProps[];
 };
 
+export type PeopleListProps = {
+  data: PeopleSearchResultProps[];
+};
+
+export type PeopleListItemProps = {
+  data: PeopleProps;
+  index: number;
+};
+
 export type HeaderProps = {
   isSearchResult?: boolean;
-  showSearch?: boolean;
+  children?: React.ReactNode;
 };
 
 export type FavoritesListProps = {
   data: ShowProps[];
+};
+
+export type SearchType = "show" | "people";
+
+export type SearchInputProps = {
+  type?: SearchType;
+};
+
+export type SearchSelectorProps = {
+  type: SearchType;
+  changeType: (type: SearchType) => void;
+};
+
+export type PersonSeriesListProps = {
+  data: CastCreditsProps[];
+};
+
+export type PersonSeriesItemProps = {
+  data: CastCreditsProps;
+  index: number;
 };

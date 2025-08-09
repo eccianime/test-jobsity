@@ -1,19 +1,38 @@
-import { useRouter } from "expo-router";
+import { SearchInputProps } from "@/types/components";
+import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 import { MagnifyingGlassIcon } from "phosphor-react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SearchInput() {
+export default function SearchInput({ type = "show" }: SearchInputProps) {
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
+  const params = useLocalSearchParams();
+  const path = usePathname();
+
   const handleSearch = () => {
-    router.push(`/search?query=${searchText}`);
+    const pathConfig = {
+      pathname: `/search/${type}` as const,
+      params: { query: searchText },
+    };
+
+    if (path.includes("search")) {
+      return router.replace(pathConfig);
+    }
+    router.push(pathConfig);
   };
+
+  useEffect(() => {
+    if (params?.query) {
+      setSearchText(params.query as string);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <View className="h-10 flex-row items-center overflow-hidden rounded-3xl">
+    <View className="h-10 flex-1 flex-row items-center overflow-hidden rounded-3xl">
       <View className="h-10 flex-1">
         <TextInput
-          placeholder="Search Shows"
+          placeholder={`Search ${type === "show" ? "Shows" : "People"}`}
           placeholderTextColor={"#AAA"}
           className="h-full bg-white px-4 font-open-regular leading-5"
           value={searchText}
@@ -21,7 +40,7 @@ export default function SearchInput() {
         />
       </View>
       <TouchableOpacity
-        className="h-[100%] w-[30%] items-center justify-center border border-primary-default bg-primary-default"
+        className="h-[100%] w-[25%] items-center justify-center border border-primary-default bg-primary-default"
         onPress={handleSearch}
       >
         <MagnifyingGlassIcon size={24} color="white" />
