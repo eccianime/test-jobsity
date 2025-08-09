@@ -9,10 +9,12 @@
     "ios": "expo start --ios -c",
     "web": "expo start --web",
     "lint": "expo lint",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.4.1",
+    "@react-native-async-storage/async-storage": "2.1.2",
     "@react-navigation/native": "^7.1.6",
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.11.0",
@@ -38,11 +40,12 @@
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
     "react-redux": "^9.2.0",
-    "redux": "^5.0.1",
-    "@react-native-async-storage/async-storage": "2.1.2"
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@testing-library/react-native": "^13.2.2",
+    "@types/jest": "^30.0.0",
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
