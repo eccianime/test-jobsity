@@ -9,7 +9,7 @@ export default function Index() {
   useEffect(() => {
     const timer = setTimeout(async () => {
       const hasPin = Boolean(await getPIN());
-      router.replace(hasPin ? "/auth/unlock" : "/auth/setup");
+      router.replace(hasPin ? "/unlock" : "/setup");
     }, 2000);
     return () => clearTimeout(timer);
   }, []);

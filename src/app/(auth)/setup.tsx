@@ -1,7 +1,7 @@
 import colors from "@/config/colors";
 import { savePIN } from "@/storage";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { router } from "expo-router";
+import { LockIcon } from "phosphor-react-native";
 import { useRef, useState } from "react";
 import {
   Alert,
@@ -49,7 +49,7 @@ export default function Setup() {
   const handleSavePin = async () => {
     if (isValidPin()) {
       await savePIN(pin.join(""));
-      router.replace("/auth/unlock");
+      router.replace("/unlock");
     } else {
       Alert.alert("Error", "Please enter a valid 4-digit PIN.");
     }
@@ -97,9 +97,9 @@ export default function Setup() {
               onPress={handleSavePin}
               className="mx-auto mt-10 flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
             >
-              <Ionicons
-                name="lock-closed"
+              <LockIcon
                 size={24}
+                weight="fill"
                 color={colors.primary.default}
               />
               <Text className="font-open-semibold text-2xl text-primary-default">

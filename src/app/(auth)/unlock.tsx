@@ -1,8 +1,8 @@
 import colors from "@/config/colors";
 import { validatePIN } from "@/storage";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useRouter } from "expo-router";
+import { FingerprintIcon, LockSimpleOpenIcon } from "phosphor-react-native";
 import { useEffect, useRef, useState } from "react";
 import {
   Alert,
@@ -112,11 +112,7 @@ export default function Unlock() {
                 onPress={handleUnlock}
                 className="mt-10 w-full flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
               >
-                <Ionicons
-                  name="lock-open"
-                  size={24}
-                  color={colors.primary.default}
-                />
+                <LockSimpleOpenIcon size={24} color={colors.primary.default} />
                 <Text className="font-open-semibold text-2xl text-primary-default">
                   Unlock App
                 </Text>
@@ -126,11 +122,7 @@ export default function Unlock() {
                   onPress={handleBiometric}
                   className="mt-6 w-full flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
                 >
-                  <Ionicons
-                    name="finger-print"
-                    size={24}
-                    color={colors.primary.default}
-                  />
+                  <FingerprintIcon size={24} color={colors.primary.default} />
                   <Text className="font-open-semibold text-2xl text-primary-default">
                     Use fingerprint/Face ID
                   </Text>

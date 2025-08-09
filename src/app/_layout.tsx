@@ -33,7 +33,16 @@ export default function RootLayout() {
           headerShown: false,
           contentStyle: { backgroundColor: colors.white },
         }}
-      />
+      >
+        <Stack.Screen name="index" />
+
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(tabs)" />
+
+        <Stack.Screen name="show/[id]" />
+        <Stack.Screen name="episode/[id]" />
+        <Stack.Screen name="search" />
+      </Stack>
     </Provider>
   );
 }
