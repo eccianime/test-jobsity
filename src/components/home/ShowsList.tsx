@@ -1,4 +1,5 @@
 import useShowPaginator from "@/hooks/useShowPaginator";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { memo } from "react";
 import { FlatList, View } from "react-native";
 import LoadingScreen from "../LoadingScreen";
@@ -20,6 +21,7 @@ function ShowsList() {
   return (
     <View className="flex-1 p-4">
       <FlatList
+        testID={COMPONENTS_TEST_IDS.SHOWS_LIST}
         showsVerticalScrollIndicator={false}
         numColumns={2}
         keyExtractor={(item) => item.id.toString()}

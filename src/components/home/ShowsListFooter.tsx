@@ -1,4 +1,5 @@
 import { ShowsListFooterProps } from "@/types/components";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { memo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
@@ -11,6 +12,7 @@ function ShowsListFooter({
   return (
     <View className="flex-row items-center justify-between">
       <TouchableOpacity
+        testID={COMPONENTS_TEST_IDS.FOOTER_PREVIOUS_BUTTON}
         className={`rounded-full bg-primary-default px-4 py-2 ${
           currentPage === 1 ? "opacity-50" : ""
         }`}
@@ -41,6 +43,7 @@ function ShowsListFooter({
       </View>
 
       <TouchableOpacity
+        testID={COMPONENTS_TEST_IDS.FOOTER_NEXT_BUTTON}
         className={`rounded-full bg-primary-default px-4 py-2 ${
           isLastPage ? "opacity-50" : ""
         }`}

@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "sonar": "sonar-scanner",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --coverage"
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.4.1",

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowsList should render LoadingScreen when isLoading is true 1`] = `null`;
