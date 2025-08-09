@@ -20,8 +20,8 @@ export default function Episode() {
     <View className="flex-1 bg-secondary-light">
       <ImageBackground
         source={
-          Boolean(data?.image?.original || data?.image?.medium)
-            ? { uri: data?.image?.original || data?.image?.medium }
+          data?.image?.original || data?.image?.medium
+            ? { uri: data?.image?.original ?? data?.image?.medium }
             : NoImageAvailable
         }
         className="aspect-video h-full max-w-[100%]"

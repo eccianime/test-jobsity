@@ -13,9 +13,9 @@ function ShowItem({ data, index }: Readonly<ShowItemProps>): JSX.Element {
     >
       <Image
         source={
-          Boolean(data.image?.medium || data.image?.original)
+          (data.image?.original ?? data.image?.medium)
             ? {
-                uri: data.image?.medium || data.image?.original,
+                uri: data.image?.original ?? data.image?.medium,
               }
             : NoImageAvailable
         }

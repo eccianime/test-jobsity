@@ -40,8 +40,8 @@ export default function Show() {
         <View>
           <Image
             source={
-              Boolean(showData?.image?.original || showData?.image?.medium)
-                ? { uri: showData?.image?.original || showData?.image?.medium }
+              showData?.image?.original || showData?.image?.medium
+                ? { uri: showData?.image?.original ?? showData?.image?.medium }
                 : NoImageAvailable
             }
             className="aspect-[9/13] h-auto max-w-[100%]"

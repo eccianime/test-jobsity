@@ -8,7 +8,7 @@ import BackButton from "./BackButton";
 export default function Header({
   isSearchResult = false,
   children,
-}: HeaderProps) {
+}: Readonly<HeaderProps>) {
   const { top } = useSafeAreaInsets();
   const router = useRouter();
   const lockApp = () => {

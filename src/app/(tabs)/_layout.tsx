@@ -1,34 +1,39 @@
+import { TabBarIcon, TabBarLabel } from "@/components/tabs";
 import colors from "@/config/colors";
 import { Tabs } from "expo-router";
-import { HeartIcon, PopcornIcon } from "phosphor-react-native";
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { useCallback } from "react";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 export default function TabLayout() {
+  const tabBarLabel = useCallback(
+    ({ focused, routeName }: { focused: boolean; routeName: string }) => (
+      <TabBarLabel focused={focused} route={routeName} />
+    ),
+    [],
+  );
+
+  const tabBarIcon = useCallback(
+    ({ focused, routeName }: { focused: boolean; routeName: string }) => (
+      <TabBarIcon focused={focused} route={routeName} />
+    ),
+    [],
+  );
+
+  const tabBarButton = useCallback(
+    (props: TouchableOpacityProps) => <TouchableOpacity {...props} />,
+    [],
+  );
+
   return (
     <Tabs
       screenOptions={({ route }) => ({
         headerShown: false,
         sceneStyle: { backgroundColor: colors.white },
-        tabBarLabel: ({ focused }) => (
-          <Text
-            className={`${focused ? "font-open-bold text-primary-default" : "font-open-regular text-primary-dark"}`}
-          >
-            {route.name === "home" ? "Shows" : "Favorites"}
-          </Text>
-        ),
-        tabBarIcon: ({ focused }) => {
-          const Icon = route.name === "home" ? PopcornIcon : HeartIcon;
-          return (
-            <Icon
-              weight={focused ? "fill" : "regular"}
-              size={24}
-              color={focused ? colors.primary.default : colors.primary.dark}
-            />
-          );
-        },
-        tabBarButton: (props) => (
-          <TouchableOpacity {...(props as TouchableOpacityProps)} />
-        ),
+        tabBarLabel: ({ focused }) =>
+          tabBarLabel({ focused, routeName: route.name }),
+        tabBarIcon: ({ focused }) =>
+          tabBarIcon({ focused, routeName: route.name }),
+        tabBarButton: (props) => tabBarButton(props as TouchableOpacityProps),
       })}
     />
   );

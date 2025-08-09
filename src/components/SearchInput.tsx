@@ -4,7 +4,9 @@ import { MagnifyingGlassIcon } from "phosphor-react-native";
 import { useEffect, useState } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SearchInput({ type = "show" }: SearchInputProps) {
+export default function SearchInput({
+  type = "show",
+}: Readonly<SearchInputProps>) {
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
   const params = useLocalSearchParams();

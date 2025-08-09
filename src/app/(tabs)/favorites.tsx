@@ -11,10 +11,11 @@ export default function Favorites() {
   useFocusEffect(
     useCallback(() => {
       getFavorites();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),
   );
 
-  const sortedList = data.sort((a, b) => a.name.localeCompare(b.name));
+  const sortedList = [...data].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <View className="flex-1">

@@ -4,7 +4,7 @@ import { FlatList, View } from "react-native";
 import ShowsListItem from "../home/ShowsListItem";
 import EmptyFavorites from "./EmptyFavorites";
 
-function FavoritesList({ data }: FavoritesListProps) {
+function FavoritesList({ data }: Readonly<FavoritesListProps>) {
   return (
     <View className="flex-1 p-4 ">
       <FlatList

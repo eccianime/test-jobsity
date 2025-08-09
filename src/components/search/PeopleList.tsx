@@ -3,7 +3,7 @@ import { memo } from "react";
 import { FlatList, View } from "react-native";
 import PeopleListItem from "./PeopleListItem";
 
-function PeopleList({ data }: PeopleListProps) {
+function PeopleList({ data }: Readonly<PeopleListProps>) {
   return (
     <View className="flex-1 p-4">
       <FlatList

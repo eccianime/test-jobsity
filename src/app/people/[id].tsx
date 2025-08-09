@@ -24,8 +24,8 @@ export default function People() {
       >
         <Image
           source={
-            Boolean(data?.image?.original || data?.image?.medium)
-              ? { uri: data?.image?.original || data?.image?.medium }
+            data?.image?.original || data?.image?.medium
+              ? { uri: data?.image?.original ?? data?.image?.medium }
               : NoImageAvailable
           }
           className="aspect-[9/13] h-auto max-w-[100%]"

@@ -98,3 +98,8 @@ export type PersonSeriesItemProps = {
   data: CastCreditsProps;
   index: number;
 };
+
+export type TabElementsProps = {
+  focused: boolean;
+  route: string;
+};

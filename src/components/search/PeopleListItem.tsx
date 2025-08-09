@@ -16,7 +16,7 @@ function PeopleListItem({
     >
       <Image
         source={
-          Boolean(data.image?.medium || data.image?.original)
+          data.image?.medium || data.image?.original
             ? {
                 uri: data.image?.medium || data.image?.original,
               }

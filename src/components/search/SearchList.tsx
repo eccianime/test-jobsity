@@ -3,7 +3,7 @@ import { memo } from "react";
 import { FlatList, View } from "react-native";
 import ShowListItem from "./SearchListItem";
 
-function SearchList({ data }: SearchListProps) {
+function SearchList({ data }: Readonly<SearchListProps>) {
   return (
     <View className="flex-1 p-4">
       <FlatList
