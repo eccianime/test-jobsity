@@ -1,4 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
+import { IconProps } from "phosphor-react-native";
+import { FunctionComponent } from "react";
 import {
   EpisodeProps,
   SearchResultProps,
@@ -29,7 +30,7 @@ export type BadgeProps = {
 export type ShowTabsProps = {
   tabs: {
     name: string;
-    icon: keyof typeof Ionicons.glyphMap;
+    icon: FunctionComponent<IconProps>;
     content: React.ReactElement;
   }[];
   currentTab: number;

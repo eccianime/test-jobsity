@@ -1,16 +1,12 @@
 import colors from "@/config/colors";
-import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { SmileyXEyesIcon } from "phosphor-react-native";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function NoResults() {
   return (
     <View className="flex-1 items-center justify-center">
-      <Ionicons
-        name="warning-outline"
-        size={100}
-        color={colors.primary.default}
-      />
+      <SmileyXEyesIcon size={100} color={colors.primary.default} />
       <Text className="text-center font-open-semibold text-2xl text-primary-default">
         No results found
       </Text>

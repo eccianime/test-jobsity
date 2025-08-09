@@ -5,6 +5,7 @@ import { useGetEpisodesListQuery } from "@/redux/services/episodes";
 import { useGetShowDetailsQuery } from "@/redux/services/shows";
 import { ShowProps } from "@/types/schema";
 import { useLocalSearchParams } from "expo-router";
+import { InfoIcon, QueueIcon } from "phosphor-react-native";
 import { useState } from "react";
 import { Image, ScrollView, View } from "react-native";
 import NoImageAvailable from "../../assets/images/no_image.png";
@@ -51,14 +52,14 @@ export default function Show() {
             tabs={[
               {
                 name: "Information",
-                icon: "information-circle-outline",
+                icon: InfoIcon,
                 content: (
                   <InformationTab data={showData || ({} as ShowProps)} />
                 ),
               },
               {
                 name: "Episodes",
-                icon: "list-outline",
+                icon: QueueIcon,
                 content: <EpisodesTab data={sortedEpisodesList} />,
               },
             ]}

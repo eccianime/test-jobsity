@@ -1,5 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { MagnifyingGlassIcon } from "phosphor-react-native";
 import { useState } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 
@@ -24,7 +24,7 @@ export default function SearchInput() {
         className="h-[100%] w-[30%] items-center justify-center border border-primary-default bg-primary-default"
         onPress={handleSearch}
       >
-        <Ionicons name="search" size={24} color="white" />
+        <MagnifyingGlassIcon size={24} color="white" />
       </TouchableOpacity>
     </View>
   );

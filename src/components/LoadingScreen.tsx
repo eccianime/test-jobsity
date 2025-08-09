@@ -1,5 +1,5 @@
 import colors from "@/config/colors";
-import EvilIcons from "@expo/vector-icons/EvilIcons";
+import { SpinnerIcon } from "phosphor-react-native";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
 import Animated, {
@@ -31,7 +31,7 @@ export default function LoadingScreen() {
   return (
     <View className="flex-1 items-center justify-center">
       <Animated.View style={animatedStyle}>
-        <EvilIcons name="spinner-3" color={colors.primary.default} size={100} />
+        <SpinnerIcon color={colors.primary.default} size={100} />
       </Animated.View>
       <Text className="text-center font-open-semibold text-2xl text-primary-default">
         Loading, please wait...

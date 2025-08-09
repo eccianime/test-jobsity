@@ -1,6 +1,6 @@
 import colors from "@/config/colors";
 import { EspisodeListTabProps } from "@/types/components";
-import { Ionicons } from "@expo/vector-icons";
+import { CaretDownIcon, CaretUpIcon } from "phosphor-react-native";
 import { useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import EpisodeListHeader from "./EpisodeListHeader";
@@ -38,17 +38,12 @@ export default function EpisodesTab({ data }: Readonly<EspisodeListTabProps>) {
             <Text className="font-open-semibold text-xl text-primary-default">
               Season {season}
             </Text>
-            {!hasOnlyOneSeason && (
-              <Ionicons
-                name={
-                  currentOpenAccordion === season
-                    ? "chevron-up"
-                    : "chevron-down"
-                }
-                size={24}
-                color={colors.primary.default}
-              />
-            )}
+            {!hasOnlyOneSeason &&
+              (currentOpenAccordion === season ? (
+                <CaretUpIcon size={24} color={colors.primary.default} />
+              ) : (
+                <CaretDownIcon size={24} color={colors.primary.default} />
+              ))}
           </TouchableOpacity>
           {currentOpenAccordion === season && (
             <FlatList

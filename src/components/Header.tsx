@@ -1,6 +1,6 @@
 import { HeaderProps } from "@/types/components";
-import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { LockIcon } from "phosphor-react-native";
 import { Image, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BackButton from "./BackButton";
@@ -10,7 +10,7 @@ export default function Header({ isSearchResult = false }: HeaderProps) {
   const { top } = useSafeAreaInsets();
   const router = useRouter();
   const lockApp = () => {
-    router.replace("/auth/unlock");
+    router.replace("/unlock");
   };
   return (
     <View className=" bg-secondary-dark p-4" style={{ paddingTop: top + 10 }}>
@@ -25,7 +25,7 @@ export default function Header({ isSearchResult = false }: HeaderProps) {
           className="mb-6 h-[50] w-[158]"
         />
         <TouchableOpacity className="absolute right-3 top-3" onPress={lockApp}>
-          <Ionicons name="lock-closed" size={24} color="white" />
+          <LockIcon size={24} color="white" />
         </TouchableOpacity>
       </View>
       <SearchInput />

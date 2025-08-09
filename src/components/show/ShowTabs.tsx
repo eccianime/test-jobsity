@@ -1,6 +1,5 @@
 import colors from "@/config/colors";
 import { ShowTabsProps } from "@/types/components";
-import { Ionicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function ShowTabs({
@@ -17,8 +16,7 @@ export default function ShowTabs({
             onPress={() => changeTab(index)}
             className={`w-1/2 flex-row items-center justify-center gap-2 rounded-t-2xl p-4 ${currentTab === index ? "bg-white" : ""}`}
           >
-            <Ionicons
-              name={tab.icon}
+            <tab.icon
               size={24}
               color={
                 currentTab === index
