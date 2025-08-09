@@ -1,13 +1,15 @@
 import { Image, View } from "react-native";
 
+import { getPIN } from "@/storage";
 import { router } from "expo-router";
 import { useEffect } from "react";
 import SplashImage from "../assets/images/splash.png";
 
 export default function Index() {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      router.replace("/home");
+    const timer = setTimeout(async () => {
+      const hasPin = Boolean(await getPIN());
+      router.replace(hasPin ? "/auth/unlock" : "/auth/setup");
     }, 2000);
     return () => clearTimeout(timer);
   }, []);

@@ -16,8 +16,8 @@ export default function LoadingScreen() {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ rotate: `${degrees.value}deg` }],
-      width: 100,
-      height: 100,
+      maxHeight: 100,
+      maxWidth: 100,
     };
   });
 
