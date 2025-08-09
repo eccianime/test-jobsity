@@ -1,8 +1,7 @@
 import { SearchListItemProps } from "@/types/components";
-import { removeHtmlTags } from "@/utils";
+import { removeHtmlTags, renderImage } from "@/utils";
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function SearchListItem({
   data,
@@ -13,13 +12,7 @@ export default function SearchListItem({
       onPress={() => router.push(`/show/${data.id}`)}
     >
       <Image
-        source={
-          data.image?.medium || data.image?.original
-            ? {
-                uri: data.image?.medium || data.image?.original,
-              }
-            : NoImageAvailable
-        }
+        source={renderImage(data.image)}
         accessible={true}
         accessibilityLabel={`Poster for ${data.name}`}
         className="aspect-[9/13] w-[45%] rounded-2xl"

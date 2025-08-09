@@ -1,10 +1,9 @@
 import BackButton from "@/components/BackButton";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useGetEpisodeDetailsQuery } from "@/redux/services/episodes";
-import { removeHtmlTags } from "@/utils";
+import { removeHtmlTags, renderImage } from "@/utils";
 import { useLocalSearchParams } from "expo-router/build/hooks";
 import { ImageBackground, Text, View } from "react-native";
-import NoImageAvailable from "../../assets/images/no_image_horizontal.png";
 
 export default function Episode() {
   const { id } = useLocalSearchParams();
@@ -19,11 +18,7 @@ export default function Episode() {
   return (
     <View className="flex-1 bg-secondary-light">
       <ImageBackground
-        source={
-          data?.image?.original || data?.image?.medium
-            ? { uri: data?.image?.original ?? data?.image?.medium }
-            : NoImageAvailable
-        }
+        source={renderImage(data?.image)}
         className="aspect-video h-full max-w-[100%]"
       >
         <View className="absolute left-8 top-12">

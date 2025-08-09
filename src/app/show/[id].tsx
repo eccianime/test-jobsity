@@ -5,11 +5,11 @@ import useFavorites from "@/hooks/useFavorites";
 import { useGetEpisodesListQuery } from "@/redux/services/episodes";
 import { useGetShowDetailsQuery } from "@/redux/services/shows";
 import { ShowProps } from "@/types/schema";
+import { renderImage } from "@/utils";
 import { useLocalSearchParams } from "expo-router";
 import { HeartIcon, InfoIcon, QueueIcon } from "phosphor-react-native";
 import { useState } from "react";
 import { Image, ScrollView, TouchableOpacity, View } from "react-native";
-import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function Show() {
   const { id } = useLocalSearchParams();
@@ -39,11 +39,7 @@ export default function Show() {
       >
         <View>
           <Image
-            source={
-              showData?.image?.original || showData?.image?.medium
-                ? { uri: showData?.image?.original ?? showData?.image?.medium }
-                : NoImageAvailable
-            }
+            source={renderImage(showData?.image)}
             className="aspect-[9/13] h-auto max-w-[100%]"
             resizeMode="cover"
           />

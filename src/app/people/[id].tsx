@@ -2,9 +2,9 @@ import BackButton from "@/components/BackButton";
 import LoadingScreen from "@/components/LoadingScreen";
 import PersonSeriesList from "@/components/person/PersonSeriesList";
 import { useGetPeopleDetailsQuery } from "@/redux/services/people";
+import { renderImage } from "@/utils";
 import { useLocalSearchParams } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
-import NoImageAvailable from "../../assets/images/no_image.png";
 
 export default function People() {
   const { id } = useLocalSearchParams();
@@ -23,11 +23,7 @@ export default function People() {
         contentContainerClassName="flex-grow bg-secondary-light"
       >
         <Image
-          source={
-            data?.image?.original || data?.image?.medium
-              ? { uri: data?.image?.original ?? data?.image?.medium }
-              : NoImageAvailable
-          }
+          source={renderImage(data?.image)}
           className="aspect-[9/13] h-auto max-w-[100%]"
           resizeMode="cover"
         />
