@@ -8,9 +8,7 @@ export function removeHtmlTags(htmlString: string): string {
 export function renderImage(
   image: { original: string; medium: string } | null | undefined,
 ) {
-  return image?.original
-    ? { uri: image.original }
-    : image?.medium
-      ? { uri: image.medium }
-      : NoImageAvailable;
+  const checkOriginal = image?.original ? { uri: image.original } : null;
+  const checkMedium = image?.medium ? { uri: image.medium } : NoImageAvailable;
+  return checkOriginal || checkMedium;
 }

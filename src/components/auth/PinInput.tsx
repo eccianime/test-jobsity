@@ -49,7 +49,7 @@ export default function PinInput({ type }: Readonly<PinInputProps>) {
             className="w-10 border-b-[2px] border-primary-dark text-center font-open-bold text-4xl text-white"
             keyboardType="numeric"
             onChangeText={(text) => handleChange(text, index)}
-            accessibilityLabel={`Dígit ${index + 1} for PIN`}
+            accessibilityLabel={`Digit ${index + 1} for PIN`}
           />
         ))}
       </View>

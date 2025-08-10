@@ -1,4 +1,5 @@
 import colors from "@/config/colors";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { SpinnerIcon } from "phosphor-react-native";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
@@ -29,7 +30,10 @@ export default function LoadingScreen() {
     );
   }, [degrees]);
   return (
-    <View className="flex-1 items-center justify-center">
+    <View
+      testID={COMPONENTS_TEST_IDS.LOADING_SCREEN}
+      className="flex-1 items-center justify-center"
+    >
       <Animated.View style={animatedStyle}>
         <SpinnerIcon color={colors.primary.default} size={100} />
       </Animated.View>
