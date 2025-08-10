@@ -47,11 +47,17 @@ export default function InformationTab({
         Genres:
       </Text>
       <View className="flex-row flex-wrap gap-2">
-        {data.genres.map((genre) => (
-          <View className="my-2 flex-row items-center gap-2" key={genre}>
-            <Badge content={genre} />
-          </View>
-        ))}
+        {data.genres.length > 0 &&
+          data.genres.map((genre) => (
+            <View className="my-2 flex-row items-center gap-2" key={genre}>
+              <Badge content={genre} />
+            </View>
+          ))}
+        {data.genres.length === 0 && (
+          <Text className="font-open-regular text-secondary-dark">
+            Not available
+          </Text>
+        )}
       </View>
     </View>
   );

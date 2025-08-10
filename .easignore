@@ -1,0 +1,10 @@
+distribution
+coverage
+__mocks__
+__tests__
+.scannerwork
+.expo
+.vscode
+eas_upload_inspection
+.git
+

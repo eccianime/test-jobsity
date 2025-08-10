@@ -11,7 +11,8 @@
     "lint": "expo lint",
     "sonar": "sonar-scanner",
     "test": "jest --watchAll --coverage",
-    "build:android": "eas build -p android --profile preview"
+    "build:android": "eas build -p android --profile preview",
+    "check:eas": "eas build:inspect --platform android --stage archive --output ./eas_upload_inspection --profile production"
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.4.1",
