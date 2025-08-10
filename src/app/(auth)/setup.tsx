@@ -9,8 +9,8 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import Logo from "../../assets/images/adaptive-icon.png";
 import LogoSub from "../../assets/images/header-logo.png";
+import Logo from "../../assets/images/logo-icon.png";
 
 export default function Setup() {
   return (
