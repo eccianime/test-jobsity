@@ -21,7 +21,8 @@
         "image": "./src/assets/images/splash.png",
         "resizeMode": "cover",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ingjeanpaulrojas.jobsity"
     },
     "web": {
       "bundler": "metro",
@@ -34,6 +35,12 @@
     },
     "jest": {
       "preset": "jest-expo"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3934bd5a-047a-4ca0-95d9-d5ad85302c4d"
+      }
     }
   }
 }

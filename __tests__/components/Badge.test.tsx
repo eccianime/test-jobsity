@@ -1,4 +1,4 @@
-import Badge from "@/components/Badge"; // ajusta la ruta según corresponda
+import Badge from "@/components/Badge";
 import { render } from "@testing-library/react-native";
 
 describe("Badge", () => {

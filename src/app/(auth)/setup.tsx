@@ -1,4 +1,5 @@
 import PinInput from "@/components/auth/PinInput";
+import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
 import {
   Image,
   Keyboard,
@@ -17,15 +18,21 @@ export default function Setup() {
       className="flex-1 bg-primary-default"
       behavior="padding"
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+        testID={SCREEN_COMPONENTS_TEST_IDS.TOUCHABLE_WITHOUT_FEEDBACK}
+      >
         <ScrollView contentContainerClassName="flexGrow" className="flex-1">
           <View className="flex-1">
             <Image
+              testID={SCREEN_COMPONENTS_TEST_IDS.TOP_LOGO}
               source={Logo}
               className="mx-auto mt-[20%] max-h-[200] max-w-[200]"
               resizeMode="contain"
             />
             <Image
+              testID={SCREEN_COMPONENTS_TEST_IDS.LOGO_LETTERS}
+              accessibilityRole="image"
               source={LogoSub}
               className="mx-auto -mt-10 mb-5 max-h-[200] max-w-[200]"
               resizeMode="contain"

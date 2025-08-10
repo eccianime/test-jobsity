@@ -6,6 +6,7 @@ import { useGetEpisodesListQuery } from "@/redux/services/episodes";
 import { useGetShowDetailsQuery } from "@/redux/services/shows";
 import { ShowProps } from "@/types/schema";
 import { renderImage } from "@/utils";
+import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { useLocalSearchParams } from "expo-router";
 import { HeartIcon, InfoIcon, QueueIcon } from "phosphor-react-native";
 import { useState } from "react";
@@ -39,6 +40,7 @@ export default function Show() {
       >
         <View>
           <Image
+            testID={SCREEN_COMPONENTS_TEST_IDS.SHOW_IMAGE}
             source={renderImage(showData?.image)}
             className="aspect-[9/13] h-auto max-w-[100%]"
             resizeMode="cover"
@@ -47,6 +49,7 @@ export default function Show() {
             <BackButton />
           </View>
           <TouchableOpacity
+            testID={SCREEN_COMPONENTS_TEST_IDS.DELETE_ADD_FAVORITE_BUTTON}
             className="absolute bottom-3 right-3 items-center justify-center rounded-full bg-primary-default p-3"
             onPress={() =>
               isShowFavorite

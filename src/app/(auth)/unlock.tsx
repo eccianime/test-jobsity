@@ -1,5 +1,6 @@
 import PinInput from "@/components/auth/PinInput";
 import colors from "@/config/colors";
+import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useRouter } from "expo-router";
 import { FingerprintIcon } from "phosphor-react-native";
@@ -49,11 +50,13 @@ export default function Unlock() {
         <ScrollView contentContainerClassName="flexGrow" className="flex-1">
           <View className="flex-1">
             <Image
+              testID={SCREEN_COMPONENTS_TEST_IDS.TOP_LOGO}
               source={Logo}
               className="mx-auto mt-[20%] max-h-[200] max-w-[200]"
               resizeMode="contain"
             />
             <Image
+              testID={SCREEN_COMPONENTS_TEST_IDS.LOGO_LETTERS}
               source={LogoSub}
               className="mx-auto -mt-10 mb-5 max-h-[200] max-w-[200]"
               resizeMode="contain"

@@ -19,12 +19,12 @@ jest.mock("@/components/favorites/EmptyFavorites", () => {
 });
 
 describe("FavoritesList", () => {
-  it("renders empty component when data is empty", () => {
+  it("should render empty component when data is empty", () => {
     const { getByTestId } = render(<FavoritesList data={[]} />);
     expect(getByTestId("empty-favorites")).toBeTruthy();
   });
 
-  it("renders list items when data is present", () => {
+  it("should render list items when data is present", () => {
     const testData: ShowProps[] = [
       {
         id: 1,

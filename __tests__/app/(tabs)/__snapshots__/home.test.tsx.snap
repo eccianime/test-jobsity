@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renderiza header con search y ShowsList 1`] = `
-<View
-  className="flex-1 pb-4"
-/>
-`;
-
 exports[`Home should render Header with Search and ShowsList 1`] = `
 <View
   className="flex-1 pb-4"
