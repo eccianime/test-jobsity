@@ -1,5 +1,6 @@
 import Episode from "@/app/episode/[id]";
 import { useGetEpisodeDetailsQuery } from "@/redux/services/episodes";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { render } from "@testing-library/react-native";
 
 jest.mock("@/redux/services/episodes", () => ({
@@ -20,7 +21,7 @@ describe("Episode", () => {
       data: null,
     });
     const { getByTestId } = render(<Episode />);
-    expect(getByTestId("loading-item")).toBeTruthy();
+    expect(getByTestId(COMPONENTS_TEST_IDS.LOADING_SCREEN)).toBeTruthy();
   });
 
   it("should show the details when there's any data", () => {

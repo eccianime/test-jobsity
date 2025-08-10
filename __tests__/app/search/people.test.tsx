@@ -1,5 +1,6 @@
 import SearchPeople from "@/app/search/people";
 import { useGetPeopleByTermQuery } from "@/redux/services/search";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { render } from "@testing-library/react-native";
 import { useLocalSearchParams } from "expo-router";
 
@@ -59,7 +60,7 @@ describe("SearchPeople screen", () => {
     });
 
     const { getByTestId } = render(<SearchPeople />);
-    expect(getByTestId("mock-loading-screen")).toBeTruthy();
+    expect(getByTestId(COMPONENTS_TEST_IDS.LOADING_SCREEN)).toBeTruthy();
   });
 
   it("should render NoResults when no data", () => {

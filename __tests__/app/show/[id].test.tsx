@@ -3,7 +3,10 @@ import useFavorites from "@/hooks/useFavorites";
 import { useGetEpisodesListQuery } from "@/redux/services/episodes";
 import { useGetShowDetailsQuery } from "@/redux/services/shows";
 import { renderImage } from "@/utils";
-import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
+import {
+  COMPONENTS_TEST_IDS,
+  SCREEN_COMPONENTS_TEST_IDS,
+} from "@/utils/constants";
 import { fireEvent, render } from "@testing-library/react-native";
 import { useLocalSearchParams } from "expo-router";
 
@@ -78,7 +81,7 @@ describe("Show screen", () => {
     });
 
     const { getByTestId } = render(<Show />);
-    expect(getByTestId("loading-item")).toBeTruthy();
+    expect(getByTestId(COMPONENTS_TEST_IDS.LOADING_SCREEN)).toBeTruthy();
   });
 
   it("should render image with correct source", () => {

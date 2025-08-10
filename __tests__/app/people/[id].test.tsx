@@ -1,5 +1,6 @@
 import People from "@/app/people/[id]";
 import { useGetPeopleDetailsQuery } from "@/redux/services/people";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { render } from "@testing-library/react-native";
 
 jest.mock("@/redux/services/people", () => ({
@@ -19,7 +20,7 @@ describe("People", () => {
       data: null,
     });
     const { getByTestId } = render(<People />);
-    expect(getByTestId("loading-item")).toBeTruthy();
+    expect(getByTestId(COMPONENTS_TEST_IDS.LOADING_SCREEN)).toBeTruthy();
   });
 
   it("should show 'no casted' text when there's no series in castcredits", () => {

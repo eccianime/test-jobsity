@@ -1,5 +1,6 @@
 import SearchShows from "@/app/search/show";
 import { useGetShowsByTermQuery } from "@/redux/services/search";
+import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { render } from "@testing-library/react-native";
 import { useLocalSearchParams } from "expo-router";
 
@@ -61,7 +62,7 @@ describe("SearchShows screen", () => {
     });
 
     const { getByTestId } = render(<SearchShows />);
-    expect(getByTestId("mock-loading-screen")).toBeTruthy();
+    expect(getByTestId(COMPONENTS_TEST_IDS.LOADING_SCREEN)).toBeTruthy();
   });
 
   it("should render NoResults when no data", () => {
