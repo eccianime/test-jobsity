@@ -8,12 +8,7 @@ import { fireEvent, render } from "@testing-library/react-native";
 import { useLocalSearchParams } from "expo-router";
 
 jest.mock("@/components/BackButton", () => jest.fn(() => null));
-jest.mock("@/components/LoadingScreen", () => {
-  const { View } = jest.requireActual("react-native");
-  const MockedLoadingScreen = () => <View testID={`loading-item`} />;
-  MockedLoadingScreen.displayName = "MockedLoadingScreen";
-  return MockedLoadingScreen;
-});
+
 jest.mock("@/components/show/ShowTabs", () =>
   jest.fn(({ tabs }) => {
     const { View } = jest.requireActual("react-native");

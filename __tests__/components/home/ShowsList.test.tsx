@@ -5,12 +5,6 @@ import { render } from "@testing-library/react-native";
 
 jest.mock("@/hooks/useShowPaginator");
 
-jest.mock("@/components/LoadingScreen", () => {
-  const MockLoadingScreen = () => <></>;
-  MockLoadingScreen.displayName = "LoadingScreen";
-  return MockLoadingScreen;
-});
-
 jest.mock("@/components/home/ShowsListFooter", () => {
   const MockShowsListFooter = () => <></>;
   MockShowsListFooter.displayName = "ShowsListFooter";
@@ -33,8 +27,8 @@ describe("ShowsList", () => {
       hasMore: true,
       goToPage: jest.fn(),
     });
-    const { toJSON } = render(<ShowsList />);
-    expect(toJSON()).toMatchSnapshot();
+    const { getByText } = render(<ShowsList />);
+    expect(getByText("Loading, please wait...")).toBeTruthy();
   });
 
   it("should render FlatList with correct props", () => {

@@ -23,14 +23,6 @@ jest.mock("@/components/Header", () =>
   }),
 );
 
-jest.mock("@/components/LoadingScreen", () =>
-  jest.fn(() => {
-    const { View } = jest.requireActual("react-native");
-    const MockLoadingScreen = () => <View testID="mock-loading-screen" />;
-    MockLoadingScreen.displayName = "mock-loading-screen";
-    return <MockLoadingScreen />;
-  }),
-);
 jest.mock("@/components/search/NoResults", () =>
   jest.fn(() => {
     const { View } = jest.requireActual("react-native");

@@ -4,18 +4,6 @@ import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { act, render } from "@testing-library/react-native";
 import { router } from "expo-router";
 
-jest.mock("expo-image", () => ({
-  Image: ({ source, ...props }: any) => {
-    const { Image } = jest.requireActual("expo-image");
-    const MockedImage = () => <Image source={source} {...props} />;
-    MockedImage.displayName = "mock-image";
-    return <MockedImage source={source} {...props} />;
-  },
-}));
-jest.mock("@/storage", () => ({
-  getPIN: jest.fn(),
-}));
-
 describe("Index Screen", () => {
   beforeEach(() => {
     jest.clearAllMocks();

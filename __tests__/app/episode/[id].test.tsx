@@ -7,12 +7,7 @@ jest.mock("@/redux/services/episodes", () => ({
 }));
 
 jest.mock("@/components/BackButton", () => jest.fn(() => null));
-jest.mock("@/components/LoadingScreen", () => {
-  const { View } = jest.requireActual("react-native");
-  const MockedLoadingScreen = () => <View testID={`loading-item`} />;
-  MockedLoadingScreen.displayName = "MockedLoadingScreen";
-  return MockedLoadingScreen;
-});
+
 jest.mock("@/utils", () => ({
   renderImage: jest.fn(() => ({ uri: "test" })),
   removeHtmlTags: jest.fn((txt) => txt),
