@@ -104,3 +104,7 @@ export type TabElementsProps = {
   focused: boolean;
   route: string;
 };
+
+export type PinInputProps = {
+  type: "setup" | "unlock";
+};

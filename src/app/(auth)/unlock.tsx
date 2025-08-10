@@ -1,17 +1,15 @@
+import PinInput from "@/components/auth/PinInput";
 import colors from "@/config/colors";
-import { validatePIN } from "@/storage";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useRouter } from "expo-router";
-import { FingerprintIcon, LockSimpleOpenIcon } from "phosphor-react-native";
-import { useEffect, useRef, useState } from "react";
+import { FingerprintIcon } from "phosphor-react-native";
+import { useEffect, useState } from "react";
 import {
-  Alert,
   Image,
   Keyboard,
   KeyboardAvoidingView,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
@@ -20,8 +18,6 @@ import Logo from "../../assets/images/adaptive-icon.png";
 import LogoSub from "../../assets/images/header-logo.png";
 
 export default function Unlock() {
-  const [pin, setPin] = useState<string[]>(["", "", "", ""]);
-  const pinRefs = useRef<TextInput[]>([]);
   const [supportsBio, setSupportsBio] = useState(false);
 
   const router = useRouter();
@@ -34,14 +30,6 @@ export default function Unlock() {
     })();
   }, []);
 
-  const handleUnlock = async () => {
-    if (await validatePIN(pin.join(""))) {
-      router.replace("/home");
-    } else {
-      Alert.alert("Error", "Invalid PIN. Please try again.");
-    }
-  };
-
   const handleBiometric = async () => {
     const result = await LocalAuthentication.authenticateAsync({
       promptMessage: "Autentícate",
@@ -49,24 +37,6 @@ export default function Unlock() {
     });
     if (result.success) {
       router.replace("/home");
-    }
-  };
-
-  const handleChange = (text: string, index: number) => {
-    const newPin = [...pin];
-    newPin[index] = text;
-    setPin(newPin);
-
-    if (text.length === 1 && index < 3) {
-      pinRefs.current[index + 1]?.focus();
-    }
-
-    if (text === "") {
-      pinRefs.current[index - 1]?.focus();
-    }
-
-    if (index === 3 && text.length === 1) {
-      Keyboard.dismiss();
     }
   };
 
@@ -91,44 +61,18 @@ export default function Unlock() {
             <Text className="mx-6 mb-6 text-center font-open-bold text-2xl text-white">
               Enter your PIN to unlock the app
             </Text>
-            <View className="mx-auto flex-row gap-5">
-              {[0, 1, 2, 3].map((index) => (
-                <TextInput
-                  key={index}
-                  ref={(el) => {
-                    pinRefs.current[index] = el as TextInput;
-                  }}
-                  maxLength={1}
-                  value={pin[index]}
-                  className="w-10 border-b-[2px] border-primary-dark text-center font-open-bold text-4xl text-white"
-                  keyboardType="numeric"
-                  onChangeText={(text) => handleChange(text, index)}
-                  accessibilityLabel={`Dígit ${index + 1} for PIN`}
-                />
-              ))}
-            </View>
-            <View className="mx-auto w-[80%]">
+            <PinInput type="unlock" />
+            {supportsBio && (
               <TouchableOpacity
-                onPress={handleUnlock}
-                className="mt-10 w-full flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
+                onPress={handleBiometric}
+                className="mx-auto mt-6 w-[80%] flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
               >
-                <LockSimpleOpenIcon size={24} color={colors.primary.default} />
+                <FingerprintIcon size={24} color={colors.primary.default} />
                 <Text className="font-open-semibold text-2xl text-primary-default">
-                  Unlock App
+                  Use fingerprint/Face ID
                 </Text>
               </TouchableOpacity>
-              {supportsBio && (
-                <TouchableOpacity
-                  onPress={handleBiometric}
-                  className="mt-6 w-full flex-row items-center justify-center gap-4 rounded-full bg-white px-8 py-4"
-                >
-                  <FingerprintIcon size={24} color={colors.primary.default} />
-                  <Text className="font-open-semibold text-2xl text-primary-default">
-                    Use fingerprint/Face ID
-                  </Text>
-                </TouchableOpacity>
-              )}
-            </View>
+            )}
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
