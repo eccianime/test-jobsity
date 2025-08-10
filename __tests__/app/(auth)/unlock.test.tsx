@@ -4,21 +4,6 @@ import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useRouter } from "expo-router";
 
-jest.mock("@/components/auth/PinInput", () => {
-  const { Text, View } = jest.requireActual("react-native");
-  return jest.fn(({ type }) => (
-    <View>
-      {type === "setup" ? <Text>Save PIN</Text> : <Text>Unlock</Text>}
-    </View>
-  ));
-});
-
-jest.mock("expo-local-authentication", () => ({
-  hasHardwareAsync: jest.fn(),
-  isEnrolledAsync: jest.fn(),
-  authenticateAsync: jest.fn(),
-}));
-
 describe("Unlock screen", () => {
   let mockReplace: jest.Mock;
 

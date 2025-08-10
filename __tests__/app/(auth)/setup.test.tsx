@@ -3,15 +3,6 @@ import { SCREEN_COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { fireEvent, render } from "@testing-library/react-native";
 import { Keyboard } from "react-native";
 
-jest.mock("@/components/auth/PinInput", () => {
-  const { Text, View } = jest.requireActual("react-native");
-  return jest.fn(({ type }) => (
-    <View>
-      {type === "setup" ? <Text>Save PIN</Text> : <Text>Unlock</Text>}
-    </View>
-  ));
-});
-
 describe("Setup Screen", () => {
   it("should render the main logo", () => {
     const { getByTestId } = render(<Setup />);
