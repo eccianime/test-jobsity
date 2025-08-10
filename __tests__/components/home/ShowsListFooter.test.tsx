@@ -1,7 +1,6 @@
 import ShowsListFooter from "@/components/home/ShowsListFooter";
 import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { fireEvent, render } from "@testing-library/react-native";
-import React from "react";
 
 describe("ShowsListFooter", () => {
   const handleChangePage = jest.fn();

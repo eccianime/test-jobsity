@@ -2,7 +2,6 @@ import ShowItem from "@/components/home/ShowsListItem";
 import { ShowProps } from "@/types/schema";
 import { fireEvent, render } from "@testing-library/react-native";
 import { router } from "expo-router";
-import React from "react";
 
 jest.mock("expo-router", () => ({
   router: {
