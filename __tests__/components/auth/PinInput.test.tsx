@@ -14,10 +14,6 @@ jest.mock("@/storage", () => ({
   validatePIN: jest.fn(),
 }));
 
-jest.mock("expo-router", () => ({
-  router: { replace: jest.fn() },
-}));
-
 jest.spyOn(Alert, "alert");
 
 describe("PinInput", () => {

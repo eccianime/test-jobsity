@@ -3,12 +3,6 @@ import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { fireEvent, render } from "@testing-library/react-native";
 import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 
-jest.mock("expo-router", () => ({
-  useRouter: jest.fn(),
-  useLocalSearchParams: jest.fn(),
-  usePathname: jest.fn(),
-}));
-
 describe("SearchInput", () => {
   const useRouterMock = useRouter as jest.Mock;
   const useLocalSearchParamsMock = useLocalSearchParams as jest.Mock;

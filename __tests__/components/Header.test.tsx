@@ -4,10 +4,6 @@ import { fireEvent, render } from "@testing-library/react-native";
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-jest.mock("expo-router", () => ({
-  useRouter: jest.fn(),
-}));
-
 jest.mock("react-native-safe-area-context", () => ({
   useSafeAreaInsets: jest.fn(),
 }));

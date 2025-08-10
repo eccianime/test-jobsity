@@ -51,9 +51,6 @@ jest.mock("@/redux/services/shows", () => ({
 jest.mock("@/redux/services/episodes", () => ({
   useGetEpisodesListQuery: jest.fn(),
 }));
-jest.mock("expo-router", () => ({
-  useLocalSearchParams: jest.fn(),
-}));
 
 jest.mock("@/utils", () => ({
   renderImage: jest.fn(),

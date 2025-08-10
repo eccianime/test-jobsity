@@ -2,5 +2,5 @@ projectKey=test-jobsity
 serverUrl=http://localhost:9000
 serverVersion=25.8.0.112029
 dashboardUrl=http://localhost:9000/dashboard?id=test-jobsity
-ceTaskId=5fd87094-a110-4620-b576-be822185301b
-ceTaskUrl=http://localhost:9000/api/ce/task?id=5fd87094-a110-4620-b576-be822185301b
+ceTaskId=ce1c5970-bf37-4e7a-8556-78b8c8ec655a
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ce1c5970-bf37-4e7a-8556-78b8c8ec655a

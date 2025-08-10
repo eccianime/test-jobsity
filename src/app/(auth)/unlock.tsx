@@ -33,8 +33,8 @@ export default function Unlock() {
 
   const handleBiometric = async () => {
     const result = await LocalAuthentication.authenticateAsync({
-      promptMessage: "Autentícate",
-      fallbackLabel: "Usar PIN",
+      promptMessage: "Authenticate to unlock",
+      fallbackLabel: "Use PIN",
     });
     if (result.success) {
       router.replace("/home");

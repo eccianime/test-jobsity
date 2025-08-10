@@ -3,12 +3,6 @@ import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { render } from "@testing-library/react-native";
 import { usePathname } from "expo-router";
 
-jest.mock("expo-router", () => ({
-  usePathname: jest.fn(),
-  useLocalSearchParams: jest.fn(),
-  useRouter: jest.fn(),
-}));
-
 describe("ComposedSearch", () => {
   const usePathnameMock = usePathname as jest.Mock;
 

@@ -3,12 +3,6 @@ import { ShowProps } from "@/types/schema";
 import { fireEvent, render } from "@testing-library/react-native";
 import { router } from "expo-router";
 
-jest.mock("expo-router", () => ({
-  router: {
-    push: jest.fn(),
-  },
-}));
-
 const sampleShow: ShowProps = {
   id: 123,
   name: "Test Show",

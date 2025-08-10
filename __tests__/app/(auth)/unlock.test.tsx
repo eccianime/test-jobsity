@@ -19,10 +19,6 @@ jest.mock("expo-local-authentication", () => ({
   authenticateAsync: jest.fn(),
 }));
 
-jest.mock("expo-router", () => ({
-  useRouter: jest.fn(),
-}));
-
 describe("Unlock screen", () => {
   let mockReplace: jest.Mock;
 

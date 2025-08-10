@@ -15,9 +15,6 @@ jest.mock("expo-image", () => ({
 jest.mock("@/storage", () => ({
   getPIN: jest.fn(),
 }));
-jest.mock("expo-router", () => ({
-  router: { replace: jest.fn() },
-}));
 
 describe("Index Screen", () => {
   beforeEach(() => {

@@ -3,12 +3,6 @@ import { COMPONENTS_TEST_IDS } from "@/utils/constants";
 import { fireEvent, render } from "@testing-library/react-native";
 import { router } from "expo-router";
 
-jest.mock("expo-router", () => ({
-  router: {
-    back: jest.fn(),
-  },
-}));
-
 describe("EmptyFavorites", () => {
   it("should render icon, message and button", () => {
     const { getByText, getByTestId } = render(<EmptyFavorites />);

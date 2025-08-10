@@ -53,9 +53,6 @@ jest.mock("@/components/search/PeopleList", () =>
 jest.mock("@/redux/services/search", () => ({
   useGetPeopleByTermQuery: jest.fn(),
 }));
-jest.mock("expo-router", () => ({
-  useLocalSearchParams: jest.fn(),
-}));
 
 describe("SearchPeople screen", () => {
   beforeEach(() => {

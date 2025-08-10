@@ -2,7 +2,7 @@ import BackButton from "@/components/BackButton";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useGetEpisodeDetailsQuery } from "@/redux/services/episodes";
 import { removeHtmlTags, renderImage } from "@/utils";
-import { useLocalSearchParams } from "expo-router/build/hooks";
+import { useLocalSearchParams } from "expo-router";
 import { ImageBackground, Text, View } from "react-native";
 
 export default function Episode() {

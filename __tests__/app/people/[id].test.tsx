@@ -5,9 +5,6 @@ import { render } from "@testing-library/react-native";
 jest.mock("@/redux/services/people", () => ({
   useGetPeopleDetailsQuery: jest.fn(),
 }));
-jest.mock("expo-router", () => ({
-  useLocalSearchParams: () => ({ id: "1" }),
-}));
 jest.mock("@/components/BackButton", () => jest.fn(() => null));
 jest.mock("@/components/LoadingScreen", () => {
   const { View } = jest.requireActual("react-native");

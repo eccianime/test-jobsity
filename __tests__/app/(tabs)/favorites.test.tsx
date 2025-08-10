@@ -3,9 +3,6 @@ import useFavorites from "@/hooks/useFavorites";
 import { render } from "@testing-library/react-native";
 
 jest.mock("@/hooks/useFavorites", () => jest.fn());
-jest.mock("expo-router", () => ({
-  useFocusEffect: (cb: any) => cb(),
-}));
 jest.mock("@/components/favorites/FavoritesList", () => jest.fn(() => null));
 jest.mock("@/components/Header", () => jest.fn(() => null));
 
