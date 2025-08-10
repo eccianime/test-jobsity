@@ -195,6 +195,14 @@ This runs Jest in watch mode and generates coverage.
 
 ---
 
+## 📲 Demo
+
+- Note that in some part of the video you'll see a black screen. This is the OS normal behaviour when biometrics is enabled to prevent recording biometrical data.
+
+https://github.com/user-attachments/assets/5caf540a-a9f8-4321-a724-ae391cf16d3d
+
+---
+
 ## ⚠️ Known caveats / tips
 
 - Building a standalone APK requires either EAS Build or converting to a bare workflow and building with Android Studio.
