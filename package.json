@@ -3,14 +3,15 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start -c",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android -c",
     "ios": "expo start --ios -c",
     "web": "expo start --web",
     "lint": "expo lint",
     "sonar": "sonar-scanner",
-    "test": "jest --watchAll --coverage"
+    "test": "jest --watchAll --coverage",
+    "build:android": "eas build -p android --profile preview"
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.4.1",
